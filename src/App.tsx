@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo , useEffect } from 'react';
 import Navigation from './components/Navigation';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
@@ -18,10 +18,24 @@ import CorporateServices from './components/services/CorporateServices';
 import FarewellServices from './components/services/FarewellServices';
 import ProposalServices from './components/services/ProposalServices';
 import FestiveServices from './components/services/FestiveServices';
-import { blogPosts } from './data/blogData';
+
+import { blogPosts as initialBlogPosts } from './data/blogData';
 import { BlogPost as BlogPostType } from './types/blog';
 
-type PageType = 'home' | 'blog' | 'gallery' | 'contact' | 'wedding' | 'birthday' | 'engagement' | 'anniversary' | 'inauguration' | 'corporate' | 'farewell' | 'proposal' | 'festive';
+type PageType = 
+  | 'home'
+  | 'blog'
+  | 'gallery'
+  | 'contact'
+  | 'wedding'
+  | 'birthday'
+  | 'engagement'
+  | 'anniversary'
+  | 'inauguration'
+  | 'corporate'
+  | 'farewell'
+  | 'proposal'
+  | 'festive';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<PageType>('home');
@@ -30,29 +44,28 @@ function App() {
   const [showSearch, setShowSearch] = useState(false);
   const [selectedPost, setSelectedPost] = useState<BlogPostType | null>(null);
   const [likedPosts, setLikedPosts] = useState<Set<number>>(new Set());
+  const [blogPosts, setBlogPosts] = useState(initialBlogPosts);
 
-  // Filter posts based on category and search query
   const filteredPosts = useMemo(() => {
     let filtered = blogPosts;
 
-    // Filter by category
     if (selectedCategory !== 'All') {
       filtered = filtered.filter(post => post.category === selectedCategory);
     }
 
-    // Filter by search query
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
-      filtered = filtered.filter(post =>
-        post.title.toLowerCase().includes(query) ||
-        post.excerpt.toLowerCase().includes(query) ||
-        post.category.toLowerCase().includes(query) ||
-        post.author.toLowerCase().includes(query)
+      filtered = filtered.filter(
+        post =>
+          post.title.toLowerCase().includes(query) ||
+          post.excerpt.toLowerCase().includes(query) ||
+          post.category.toLowerCase().includes(query) ||
+          post.author.toLowerCase().includes(query)
       );
     }
 
     return filtered;
-  }, [selectedCategory, searchQuery]);
+  }, [blogPosts, selectedCategory, searchQuery]);
 
   const handleSearchToggle = () => {
     setShowSearch(!showSearch);
@@ -72,17 +85,21 @@ function App() {
   const handleLike = (postId: number) => {
     setLikedPosts(prev => {
       const newLikedPosts = new Set(prev);
-      if (newLikedPosts.has(postId)) {
+      const liked = newLikedPosts.has(postId);
+
+      if (liked) {
         newLikedPosts.delete(postId);
-        // Update the post likes count
-        const post = blogPosts.find(p => p.id === postId);
-        if (post) post.likes -= 1;
       } else {
         newLikedPosts.add(postId);
-        // Update the post likes count
-        const post = blogPosts.find(p => p.id === postId);
-        if (post) post.likes += 1;
       }
+
+      // Immutably update likes count in posts state
+      setBlogPosts(prevPosts =>
+        prevPosts.map(p =>
+          p.id === postId ? { ...p, likes: p.likes + (liked ? -1 : 1) } : p
+        )
+      );
+
       return newLikedPosts;
     });
   };
@@ -100,243 +117,39 @@ function App() {
     setShowSearch(false);
   };
 
-  if (selectedPost) {
-    return (
-      <div className="min-h-screen bg-cream">
-        <Navigation
-          onSearchToggle={handleSearchToggle}
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          showSearch={showSearch}
-          currentPage={currentPage}
-          onNavigate={handleNavigation}
+  const pages: Record<PageType, JSX.Element> = {
+    home: <HomePage />,
+    gallery: <Gallery />,
+    contact: <Contact />,
+    wedding: <WeddingServices />,
+    birthday: <BirthdayServices />,
+    engagement: <EngagementServices />,
+    anniversary: <AnniversaryServices />,
+    inauguration: <InaugurationServices />,
+    corporate: <CorporateServices />,
+    farewell: <FarewellServices />,
+    proposal: <ProposalServices />,
+    festive: <FestiveServices />,
+    blog: (
+      <>
+        <BlogHero />
+        <BlogCategories
+          selectedCategory={selectedCategory}
+          onCategorySelect={handleCategorySelect}
         />
-        <BlogPost
-          post={selectedPost}
-          onBack={handleBackToBlog}
+        <BlogGrid
+          posts={filteredPosts}
+          onPostClick={handlePostClick}
           onLike={handleLike}
-          isLiked={likedPosts.has(selectedPost.id)}
+          likedPosts={likedPosts}
         />
-        <Footer />
-      </div>
-    );
-  }
+      </>
+    )
+  };
 
-  // Service pages
-  if (currentPage === 'wedding') {
-    return (
-      <div className="min-h-screen">
-        <Navigation
-          onSearchToggle={handleSearchToggle}
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          showSearch={showSearch}
-          currentPage={currentPage}
-          onNavigate={handleNavigation}
-        />
-        <WeddingServices />
-        {/* <Newsletter /> */}
-        <Footer />
-      </div>
-    );
-  }
-
-  if (currentPage === 'birthday') {
-    return (
-      <div className="min-h-screen">
-        <Navigation
-          onSearchToggle={handleSearchToggle}
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          showSearch={showSearch}
-          currentPage={currentPage}
-          onNavigate={handleNavigation}
-        />
-        <BirthdayServices />
-        {/* <Newsletter /> */}
-        <Footer />
-      </div>
-    );
-  }
-
-  if (currentPage === 'engagement') {
-    return (
-      <div className="min-h-screen">
-        <Navigation
-          onSearchToggle={handleSearchToggle}
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          showSearch={showSearch}
-          currentPage={currentPage}
-          onNavigate={handleNavigation}
-        />
-        <EngagementServices />
-        {/* <Newsletter /> */}
-        <Footer />
-      </div>
-    );
-  }
-
-  if (currentPage === 'anniversary') {
-    return (
-      <div className="min-h-screen">
-        <Navigation
-          onSearchToggle={handleSearchToggle}
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          showSearch={showSearch}
-          currentPage={currentPage}
-          onNavigate={handleNavigation}
-        />
-        <AnniversaryServices />
-        {/* <Newsletter /> */}
-        <Footer />
-      </div>
-    );
-  }
-
-  if (currentPage === 'inauguration') {
-    return (
-      <div className="min-h-screen">
-        <Navigation
-          onSearchToggle={handleSearchToggle}
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          showSearch={showSearch}
-          currentPage={currentPage}
-          onNavigate={handleNavigation}
-        />
-        <InaugurationServices />
-        {/* <Newsletter /> */}
-        <Footer />
-      </div>
-    );
-  }
-
-  if (currentPage === 'corporate') {
-    return (
-      <div className="min-h-screen">
-        <Navigation
-          onSearchToggle={handleSearchToggle}
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          showSearch={showSearch}
-          currentPage={currentPage}
-          onNavigate={handleNavigation}
-        />
-        <CorporateServices />
-        {/* <Newsletter /> */}
-        <Footer />
-      </div>
-    );
-  }
-
-  if (currentPage === 'farewell') {
-    return (
-      <div className="min-h-screen">
-        <Navigation
-          onSearchToggle={handleSearchToggle}
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          showSearch={showSearch}
-          currentPage={currentPage}
-          onNavigate={handleNavigation}
-        />
-        <FarewellServices />
-        {/* <Newsletter /> */}
-        <Footer />
-      </div>
-    );
-  }
-
-  if (currentPage === 'proposal') {
-    return (
-      <div className="min-h-screen">
-        <Navigation
-          onSearchToggle={handleSearchToggle}
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          showSearch={showSearch}
-          currentPage={currentPage}
-          onNavigate={handleNavigation}
-        />
-        <ProposalServices />
-        {/* <Newsletter /> */}
-        <Footer />
-      </div>
-    );
-  }
-
-  if (currentPage === 'festive') {
-    return (
-      <div className="min-h-screen">
-        <Navigation
-          onSearchToggle={handleSearchToggle}
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          showSearch={showSearch}
-          currentPage={currentPage}
-          onNavigate={handleNavigation}
-        />
-        <FestiveServices />
-        {/* <Newsletter /> */}
-        <Footer />
-      </div>
-    );
-  }
-
-  if (currentPage === 'gallery') {
-    return (
-      <div className="min-h-screen">
-        <Navigation
-          onSearchToggle={handleSearchToggle}
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          showSearch={showSearch}
-          currentPage={currentPage}
-          onNavigate={handleNavigation}
-        />
-        <Gallery />
-        {/* <Newsletter /> */}
-        <Footer />
-      </div>
-    );
-  }
-
-  if (currentPage === 'contact') {
-    return (
-      <div className="min-h-screen">
-        <Navigation
-          onSearchToggle={handleSearchToggle}
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          showSearch={showSearch}
-          currentPage={currentPage}
-          onNavigate={handleNavigation}
-        />
-        <Contact />
-        <Footer />
-      </div>
-    );
-  }
-
-  if (currentPage === 'home') {
-    return (
-      <div className="min-h-screen">
-        <Navigation
-          onSearchToggle={handleSearchToggle}
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          showSearch={showSearch}
-          currentPage={currentPage}
-          onNavigate={handleNavigation}
-        />
-        <HomePage />
-        {/* <Newsletter /> */}
-        <Footer />
-      </div>
-    );
-  }
+  useEffect(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}, [currentPage, selectedPost]);
 
   return (
     <div className="min-h-screen bg-cream">
@@ -348,18 +161,19 @@ function App() {
         currentPage={currentPage}
         onNavigate={handleNavigation}
       />
-      <BlogHero />
-      <BlogCategories
-        selectedCategory={selectedCategory}
-        onCategorySelect={handleCategorySelect}
-      />
-      <BlogGrid
-        posts={filteredPosts}
-        onPostClick={handlePostClick}
-        onLike={handleLike}
-        likedPosts={likedPosts}
-      />
-      {/* <Newsletter /> */}
+
+      {selectedPost ? (
+        <BlogPost
+          post={selectedPost}
+          onBack={handleBackToBlog}
+          onLike={handleLike}
+          isLiked={likedPosts.has(selectedPost.id)}
+        />
+      ) : (
+        pages[currentPage] || pages['blog']
+      )}
+
+      {currentPage === 'home' && <Newsletter />}
       <Footer />
     </div>
   );

@@ -29,12 +29,6 @@ const EngagementServices = () => {
       image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
-      title: "Catering Services",
-      description: "Exquisite dining experiences with traditional and contemporary cuisine",
-      icon: Users,
-      image: "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600"
-    },
-    {
       title: "Venue Selection",
       description: "Perfect venues from intimate settings to grand celebration halls",
       icon: Heart,
@@ -225,7 +219,7 @@ const EngagementServices = () => {
       </section> */}
 
       {/* Gallery Section */}
-      <section className="py-20 bg-gradient-to-br from-wedding-rose to-wedding-burgundy">
+      {/* <section className="py-20 bg-gradient-to-br from-wedding-rose to-wedding-burgundy">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-playfair font-bold text-white mb-6">
@@ -256,7 +250,7 @@ const EngagementServices = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

@@ -54,14 +54,6 @@ const BirthdayServices = () => {
       image:
         "https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
-    {
-      title: "Catering & Cakes",
-      description:
-        "Delicious birthday cakes and catering options for intimate to large celebrations",
-      icon: Users,
-      image:
-        "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600",
-    },
   ];
 
   const birthdayPackages = [
@@ -272,7 +264,7 @@ const BirthdayServices = () => {
       </section> */}
 
       {/* Gallery Section */}
-      <section className="py-20 bg-gradient-to-br from-wedding-gold to-yellow-500">
+      {/* <section className="py-20 bg-gradient-to-br from-wedding-gold to-yellow-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-playfair font-bold text-wedding-brown mb-6">
@@ -305,7 +297,7 @@ const BirthdayServices = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

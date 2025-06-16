@@ -12,55 +12,43 @@ import {
 } from "lucide-react";
 import wedding from "../../assets/wedding.mp4";
 import logo from "../../assets/Logo1.png";
+import haldi from "../../assets/haldi.png";
+import destinationwedding from "../../assets/destinationwedding.jpg";
+import mehndi from "../../assets/mehndi.jpg";
+import sangeet1 from "../../assets/sangeet1.jpg";
+import decor from "../../assets/decor.jpg";
+
 const WeddingServices = () => {
   const weddingFeatures = [
-    {
-      title: "Traditional Ceremonies",
-      description:
-        "Complete Hindu, Sikh, Christian, and Muslim wedding ceremonies with authentic rituals",
-      icon: Heart,
-      image:
-        "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600",
-    },
     {
       title: "Destination Weddings",
       description:
         "Exotic locations across India and abroad for your dream destination wedding",
-      icon: Camera,
-      image:
-        "https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: destinationwedding,
     },
     {
-      title: "Wedding Photography",
+      title: "Haldi Function",
       description:
-        "Professional photographers capturing every precious moment of your special day",
-      icon: Camera,
-      image:
-        "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600",
-    },
-    {
-      title: "Catering Services",
-      description:
-        "Authentic Indian cuisine and international menus for all wedding functions",
-      icon: Utensils,
-      image:
-        "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "Let love begin with laughter, turmeric, and yellow hues of joy",
+      image:haldi,
     },
     {
       title: "Decoration & Themes",
       description:
         "Stunning mandap designs, floral arrangements, and themed decorations",
-      icon: Palette,
-      image:
-        "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: decor,
     },
     {
-      title: "Entertainment",
+      title: "Mehendi Function",
       description:
-        "Live bands, DJs, dancers, and cultural performances for all celebrations",
-      icon: Music,
-      image:
-        "https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "Color your hands with love, and your evening with music",
+      image: mehndi,
+    },
+    {
+      title: "Sangeet Night",
+      description:
+        "Where music meets magic, and hearts dance without fear",
+      image: sangeet1,
     },
   ];
 
@@ -174,7 +162,6 @@ const WeddingServices = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {weddingFeatures.map((feature, index) => {
-              const IconComponent = feature.icon;
               return (
                 <div
                   key={index}
@@ -188,9 +175,6 @@ const WeddingServices = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div className="absolute bottom-4 left-4">
-                      <div className="bg-wedding-gold text-wedding-brown p-2 rounded-full">
-                        <IconComponent className="h-6 w-6" />
-                      </div>
                     </div>
                   </div>
                   <div className="p-6">
@@ -274,7 +258,7 @@ const WeddingServices = () => {
       </section> */}
 
       {/* Gallery Section */}
-      <section className="py-20 bg-gradient-to-br from-wedding-brown to-wedding-burgundy">
+      {/* <section className="py-20 bg-gradient-to-br from-wedding-brown to-wedding-burgundy">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-playfair font-bold text-white mb-6">
@@ -314,7 +298,7 @@ const WeddingServices = () => {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

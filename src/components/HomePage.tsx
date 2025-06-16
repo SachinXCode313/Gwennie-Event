@@ -13,45 +13,86 @@ import {
   CheckCircle,
 } from "lucide-react";
 
-import home from "../assets/home1.mp4"; 
+
+import home from "../assets/home2.mp4"; 
 import logo from "../assets/Logo1.png";
+import wedding from "../assets/wedding1.png"; // Example image, replace with actual image path
+import birthday from "../assets/birthday1.jpg"; // Example image, replace with actual image path
+import corporate from "../assets/corporate1.jpg"; // Example image, replace with actual image path
+import social from "../assets/social.jpg"; // Example image, replace with actual image path
+import engagement from "../assets/engagement1.jpg"; // Example image, replace with actual image path
+import anniversary from "../assets/anniversary.jpg"; // Example image, replace with actual image path
+import inaugration from "../assets/inaugration.jpg"; // Example image, replace with actual image path
+import farewell from "../assets/farewell.jpg"; // Example image, replace with actual image path
+import date from "../assets/date.jpg"; // Example image, replace with actual image path
+import festive from "../assets/festive.jpg"; // Example image, replace with actual image path
 const HomePage = () => {
   const [currentStep, setCurrentStep] = useState(0);
 
   const services = [
-    {
-      title: "Wedding Planning",
-      description:
-        "Complete wedding planning from traditional ceremonies to modern celebrations",
-      image:
-        "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=800",
-      icon: Heart,
-      featured: true,
-    },
-    {
-      title: "Birthday Celebrations",
-      description:
-        "Memorable birthday parties for all ages with personalized themes",
-      image:
-        "https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg?auto=compress&cs=tinysrgb&w=800",
-      icon: Gift,
-    },
-    {
-      title: "Corporate Events",
-      description:
-        "Professional gatherings, conferences, and team building activities",
-      image:
-        "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=800",
-      icon: Users,
-    },
-    {
-      title: "Social Parties",
-      description: "Themed celebrations, festivals, and social gatherings",
-      image:
-        "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=800",
-      icon: Music,
-    },
-  ];
+  {
+    title: "Wedding Planning",
+    description: "More than a wedding — it’s the royal beginning of forever",
+    image: wedding,
+    featured: true,
+    page: "wedding",
+  },
+  {
+    title: "Birthday Celebrations",
+    description: "Every birthday deserves a moment that feels like magic",
+    image: birthday,
+    page: "birthday",
+  },
+  {
+    title: "Corporate Events",
+    description: "Professional events with a personal touch",
+    image: corporate,
+    page: "corporate",
+  },
+  {
+    title: "Social Parties",
+    description: "Themed celebrations, festivals, and social gatherings",
+    image: social,
+    page: "gallery", // assuming social parties link to your gallery? Adjust if you have a separate page
+  },
+  {
+    title: "Engagement Ceremonies",
+    description: "Two hearts, one promise — sealed in style",
+    image: engagement,
+    page: "engagement",
+  },
+  {
+    title: "Anniversary Celebrations",
+    description: "Because every year of love deserves a new celebration",
+    image: anniversary,
+    page: "anniversary",
+  },
+  {
+    title: "Inauguration Events",
+    description: "New beginnings, beautifully launched",
+    image: inaugration,
+    page: "inauguration",
+  },
+  {
+    title: "Farewell Parties",
+    description: "Every hello and goodbye deserves a stylish celebration",
+    image: farewell,
+    page: "farewell",
+  },
+  {
+    title: "Proposal & Date Nights",
+    description: "When love speaks through ambiance",
+    image: date,
+    page: "proposal",
+  },
+  {
+    title: "Festive Parties",
+    description: "Celebrate every festival with sparkle and soul",
+    image: festive,
+    page: "festive",
+  },
+];
+
 
   const galleryImages = [
     "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -103,6 +144,8 @@ const HomePage = () => {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  
 
   return (
     <div className="min-h-screen">
@@ -208,7 +251,6 @@ const HomePage = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => {
-              const IconComponent = service.icon;
               return (
                 <div
                   key={index}
@@ -236,11 +278,8 @@ const HomePage = () => {
                     )}
                   </div>
 
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
                     <div className="flex items-center space-x-3 mb-3">
-                      <div className="bg-wedding-gold text-wedding-brown p-2 rounded-full">
-                        <IconComponent className="h-6 w-6" />
-                      </div>
                       <h3
                         className={`font-playfair font-bold ${
                           service.featured ? "text-2xl" : "text-xl"
@@ -265,7 +304,7 @@ const HomePage = () => {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-playfair font-bold text-wedding-brown mb-6">
@@ -301,7 +340,7 @@ const HomePage = () => {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Planning Steps Section */}
       <section className="py-20 bg-gradient-to-br from-wedding-brown to-wedding-burgundy text-white">

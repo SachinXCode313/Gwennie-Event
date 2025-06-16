@@ -222,7 +222,7 @@ const FarewellServices = () => {
       </section> */}
 
       {/* Gallery Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-700">
+      {/* <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-playfair font-bold text-white mb-6">
@@ -253,7 +253,7 @@ const FarewellServices = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
