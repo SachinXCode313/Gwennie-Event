@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Menu, X, Heart, Search, ChevronDown } from 'lucide-react';
 import logo from '../assets/Logo1.png'; // Adjust the path as necessary
 
-type PageType = 'home' | 'blog' | 'wedding' | 'birthday' | 'engagement' | 'anniversary' | 'inauguration' | 'corporate' | 'farewell' | 'proposal' | 'festive';
+type PageType = 'home' | 'blog' | 'gallery' | 'contact' | 'wedding' | 'birthday' | 'engagement' | 'anniversary' | 'inauguration' | 'corporate' | 'farewell' | 'proposal' | 'festive';
 
 interface NavigationProps {
   onSearchToggle: () => void;
@@ -120,12 +120,26 @@ const Navigation: React.FC<NavigationProps> = ({
             >
               Blog
             </button>
-            <a href="#gallery" className="text-wedding-brown hover:text-wedding-burgundy transition-colors">
+            <button 
+              onClick={() => onNavigate('gallery')}
+              className={`transition-colors ${
+                currentPage === 'gallery' 
+                  ? 'text-wedding-burgundy font-semibold' 
+                  : 'text-wedding-brown hover:text-wedding-burgundy'
+              }`}
+            >
               Gallery
-            </a>
-            <a href="#contact" className="text-wedding-brown hover:text-wedding-burgundy transition-colors">
+            </button>
+            <button 
+              onClick={() => onNavigate('contact')}
+              className={`transition-colors ${
+                currentPage === 'contact' 
+                  ? 'text-wedding-burgundy font-semibold' 
+                  : 'text-wedding-brown hover:text-wedding-burgundy'
+              }`}
+            >
               Contact
-            </a>
+            </button>
             {currentPage === 'blog' && (
               <Search 
                 className="h-5 w-5 text-wedding-brown hover:text-wedding-burgundy cursor-pointer transition-colors" 
@@ -220,12 +234,32 @@ const Navigation: React.FC<NavigationProps> = ({
               >
                 Blog
               </button>
-              <a href="#gallery" className="text-wedding-brown hover:text-wedding-burgundy transition-colors">
+              <button 
+                onClick={() => {
+                  onNavigate('gallery');
+                  setIsMenuOpen(false);
+                }}
+                className={`text-left transition-colors ${
+                  currentPage === 'gallery' 
+                    ? 'text-wedding-burgundy font-semibold' 
+                    : 'text-wedding-brown hover:text-wedding-burgundy'
+                }`}
+              >
                 Gallery
-              </a>
-              <a href="#contact" className="text-wedding-brown hover:text-wedding-burgundy transition-colors">
+              </button>
+              <button 
+                onClick={() => {
+                  onNavigate('contact');
+                  setIsMenuOpen(false);
+                }}
+                className={`text-left transition-colors ${
+                  currentPage === 'contact' 
+                    ? 'text-wedding-burgundy font-semibold' 
+                    : 'text-wedding-brown hover:text-wedding-burgundy'
+                }`}
+              >
                 Contact
-              </a>
+              </button>
             </div>
           </div>
         )}

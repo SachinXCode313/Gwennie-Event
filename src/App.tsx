@@ -1,5 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import Navigation from './components/Navigation';
+import Gallery from './components/Gallery';
+import Contact from './components/Contact';
 import HomePage from './components/HomePage';
 import BlogHero from './components/BlogHero';
 import BlogCategories from './components/BlogCategories';
@@ -19,7 +21,7 @@ import FestiveServices from './components/services/FestiveServices';
 import { blogPosts } from './data/blogData';
 import { BlogPost as BlogPostType } from './types/blog';
 
-type PageType = 'home' | 'blog' | 'wedding' | 'birthday' | 'engagement' | 'anniversary' | 'inauguration' | 'corporate' | 'farewell' | 'proposal' | 'festive';
+type PageType = 'home' | 'blog' | 'gallery' | 'contact' | 'wedding' | 'birthday' | 'engagement' | 'anniversary' | 'inauguration' | 'corporate' | 'farewell' | 'proposal' | 'festive';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<PageType>('home');
@@ -278,6 +280,41 @@ function App() {
         />
         <FestiveServices />
         {/* <Newsletter /> */}
+        <Footer />
+      </div>
+    );
+  }
+
+  if (currentPage === 'gallery') {
+    return (
+      <div className="min-h-screen">
+        <Navigation
+          onSearchToggle={handleSearchToggle}
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          showSearch={showSearch}
+          currentPage={currentPage}
+          onNavigate={handleNavigation}
+        />
+        <Gallery />
+        {/* <Newsletter /> */}
+        <Footer />
+      </div>
+    );
+  }
+
+  if (currentPage === 'contact') {
+    return (
+      <div className="min-h-screen">
+        <Navigation
+          onSearchToggle={handleSearchToggle}
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          showSearch={showSearch}
+          currentPage={currentPage}
+          onNavigate={handleNavigation}
+        />
+        <Contact />
         <Footer />
       </div>
     );
