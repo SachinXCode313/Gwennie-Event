@@ -12,7 +12,7 @@ const BlogHero = () => {
             </div>
           <div className="flex items-center justify-center mb-6">
             <h1 className="text-4xl md:text-6xl font-playfair font-bold">
-              Gwennie Event
+              Gwennies Event
             </h1>
           </div>
           <h2 className="text-2xl md:text-3xl font-playfair font-semibold mb-4">

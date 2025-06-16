@@ -11,7 +11,7 @@ const Footer = () => {
             <div className="flex items-center space-x-2 mb-4">
               <Heart className="h-8 w-8 text-wedding-gold fill-current" />
               <span className="text-2xl font-playfair font-bold">
-                Gwennie Event
+                Gwennies Event
               </span>
             </div>
             <p className="text-white/80 mb-6">
@@ -59,7 +59,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4" />
-                <span>gwennieeventorganiser@gmail.com</span>
+                <span>Gwennieseventorganiser@gmail.com</span>
               </div>
               <div className="flex items-start space-x-2">
                 <MapPin className="h-4 w-4 " />

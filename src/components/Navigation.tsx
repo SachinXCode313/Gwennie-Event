@@ -57,7 +57,7 @@ const Navigation: React.FC<NavigationProps> = ({
             {/* <Heart className="h-8 w-8 text-wedding-brown fill-current" /> */}
             <img src={logo} alt="logo" className='w-14 h-full'/>
             <span className="text-2xl font-playfair font-bold text-wedding-brown">
-              Gwennie Events
+              Gwennies Events
             </span>
           </div>
 

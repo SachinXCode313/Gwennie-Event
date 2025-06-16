@@ -13,7 +13,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 
-import home from "../assets/video3.mp4"; 
+import home from "../assets/home1.mp4"; 
 import logo from "../assets/Logo1.png";
 const HomePage = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -133,12 +133,12 @@ const HomePage = () => {
           <div className=" max-w-4xl mx-auto px-4">
             {/* Logo */}
             <div className="flex items-center justify-center ">
-              <img src={logo} alt="logo" className="w-28 h-full" />
+              <img src={logo} alt="logo" className="w-40 h-full" />
             </div>
 
             <div className="flex items-center justify-center mb-8">
               <h1 className="text-5xl md:text-7xl font-playfair font-bold">
-                Gwennie Events
+                Gwennies Events
               </h1>
             </div>
 
