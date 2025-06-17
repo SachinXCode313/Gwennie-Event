@@ -176,6 +176,29 @@ const Navigation: React.FC<NavigationProps> = ({
                 onClick={onSearchToggle}
               />
             )}
+            <div className="flex space-x-4">
+              <a
+                href="https://www.facebook.com/profile.php?id=61577036553067"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Facebook className="h-5 w-5 text-wedding-brown cursor-pointer transition-colors hover:text-wedding-gold" />
+              </a>
+              <a
+                href="https://www.instagram.com/gwennies_events/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+              <Instagram className="h-5 w-5 text-wedding-brown cursor-pointer transition-colors hover:text-wedding-gold" />
+              </a>
+              <a
+                href="https://api.whatsapp.com/send/?phone=7728060071&text&type=phone_number&app_absent=0"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+              <MessageCircle className="h-5 w-5 text-wedding-brown cursor-pointer transition-colors hover:text-wedding-gold" />
+              </a>
+            </div>
           </div>
 
           {/* Mobile menu button */}

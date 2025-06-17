@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 
-import home from "../assets/home2.mp4"; 
+import home from "../assets/home3.mp4"; 
 import logo from "../assets/Logo1.png";
 import wedding from "../assets/wedding1.png"; // Example image, replace with actual image path
 import birthday from "../assets/birthday1.jpg"; // Example image, replace with actual image path
