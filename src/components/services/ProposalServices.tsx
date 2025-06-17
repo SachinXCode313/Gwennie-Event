@@ -7,7 +7,13 @@ import custom from "../../assets/date1.jpg";
 import night from "../../assets/date2.jpg";
 import keepsakes from "../../assets/date3.jpg";
 import romatic from "../../assets/date4.jpg";
-const ProposalServices = () => {
+type PageType = "contact"
+
+interface NavigationProps {
+  onNavigate: (page: PageType) => void;
+}
+
+const ProposalServices: React.FC<NavigationProps> = ({ onNavigate }) => {
   const proposalFeatures = [
     {
       title: "Romantic Proposals",
@@ -100,7 +106,7 @@ const ProposalServices = () => {
             <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
               Make your proposal unforgettable with romantic setups and intimate date experiences that capture hearts and create lasting memories.
             </p>
-            <button className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
+            <button onClick={()=> onNavigate("contact")} className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
               <span className="flex items-center space-x-3">
                 <span>Plan Your Proposal</span>
                 <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />

@@ -18,7 +18,14 @@ import themedbirthday from "../../assets/birthday3.jpg";
 import entertainmentbirthday from "../../assets/birthday6.jpg";
 import photographyservice from "../../assets/birthday5.jpg";
 
-const BirthdayServices = () => {
+type PageType = "contact"
+
+
+interface NavigationProps {
+  onNavigate: (page: PageType) => void;
+}
+
+const BirthdayServices: React.FC<NavigationProps> = ({ onNavigate }) => {
   const birthdayFeatures = [
     {
       title: "Kids Birthday Parties",
@@ -136,7 +143,7 @@ const BirthdayServices = () => {
               From magical kids parties to milestone celebrations, we create
               unforgettable birthday experiences filled with joy and laughter.
             </p>
-            <button className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
+            <button onClick={()=> onNavigate("contact")} className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
               <span className="flex items-center space-x-3">
                 <span>Plan Your Party</span>
                 <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />

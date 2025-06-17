@@ -17,7 +17,15 @@ import milestone from "../../assets/anniversary1.jpg";
 import romantic from "../../assets/anniversary2.jpg";
 import family from "../../assets/anniversary3.jpg";
 import memory from "../../assets/anniversary4.jpg";
-const AnniversaryServices = () => {
+
+type PageType = "contact"
+
+
+interface NavigationProps {
+  onNavigate: (page: PageType) => void;
+}
+
+const AnniversaryServices: React.FC<NavigationProps> = ({ onNavigate }) => {
   const anniversaryFeatures = [
     {
       title: "Milestone Anniversaries",
@@ -122,7 +130,7 @@ const AnniversaryServices = () => {
         <div className="relative z-10 h-full flex items-center justify-center text-center text-white">
           <div className="max-w-4xl mx-auto px-4">
             <div className="flex items-center justify-center ">
-              <img src={logo} alt="logo" className="w-40 h-full" />
+              <img src={logo} alt="logo" className="w-28 h-full" />
             </div>
             <div className="flex items-center justify-center mb-8">
               <h1 className="text-5xl md:text-7xl font-playfair font-bold">
@@ -136,7 +144,7 @@ const AnniversaryServices = () => {
               Honor your journey of love with elegant anniversary celebrations
               that commemorate your beautiful years together.
             </p>
-            <button className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
+            <button onClick={()=> onNavigate("contact")} className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
               <span className="flex items-center space-x-3">
                 <span>Plan Your Anniversary</span>
                 <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />

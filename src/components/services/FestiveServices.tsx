@@ -7,7 +7,13 @@ import cultural from "../../assets/festive5.jpg";
 import festival from "../../assets/festive1.jpg";
 import themed from "../../assets/festive6.jpg";
 import traditional from "../../assets/festive3.jpg";
-const FestiveServices = () => {
+type PageType = "contact"
+
+interface NavigationProps {
+  onNavigate: (page: PageType) => void;
+}
+
+const FestiveServices: React.FC<NavigationProps> = ({ onNavigate }) => {
   const festiveFeatures = [
     {
       title: "Festival Celebrations",
@@ -100,7 +106,7 @@ const FestiveServices = () => {
             <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
               Immerse yourself in the vibrant colors and joyful spirit of Indian festivals with authentic celebrations that honor tradition.
             </p>
-            <button className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
+            <button onClick={()=> onNavigate("contact")} className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
               <span className="flex items-center space-x-3">
                 <span>Plan Your Festival</span>
                 <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />

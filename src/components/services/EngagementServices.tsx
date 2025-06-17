@@ -7,7 +7,14 @@ import photography from "../../assets/engagement2.jpg";
 import venue from "../../assets/engagement3.jpg";
 import romantic from "../../assets/engagement4.jpg";
 import entertainment from "../../assets/engagement5.jpg";
-const EngagementServices = () => {
+
+type PageType = "contact"
+
+interface NavigationProps {
+  onNavigate: (page: PageType) => void;
+}
+
+const EngagementServices: React.FC<NavigationProps> = ({ onNavigate }) => {
   const engagementFeatures = [
     {
       title: "Ring Ceremony Planning",
@@ -100,7 +107,7 @@ const EngagementServices = () => {
             <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
               Celebrate your commitment with elegant engagement ceremonies that mark the beautiful beginning of your journey together.
             </p>
-            <button className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
+            <button onClick={()=> onNavigate("contact")} className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
               <span className="flex items-center space-x-3">
                 <span>Plan Your Engagement</span>
                 <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />

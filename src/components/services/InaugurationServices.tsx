@@ -7,7 +7,13 @@ import business from "../../assets/inaugration1.jpg";
 import ribbon from "../../assets/inaugration2.jpg";
 import event from "../../assets/inaugration4.jpg";
 import media from "../../assets/inaugration5.jpg";
-const InaugurationServices = () => {
+type PageType = "contact"
+
+interface NavigationProps {
+  onNavigate: (page: PageType) => void;
+}
+
+const InaugurationServices: React.FC<NavigationProps> = ({ onNavigate }) => {
   const inaugurationFeatures = [
     {
       title: "Business Inaugurations",
@@ -100,7 +106,7 @@ const InaugurationServices = () => {
             <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
               Mark your new ventures with memorable inauguration ceremonies that create lasting impressions and celebrate new beginnings.
             </p>
-            <button className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
+            <button onClick={()=> onNavigate("contact")} className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
               <span className="flex items-center space-x-3">
                 <span>Plan Your Inauguration</span>
                 <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />

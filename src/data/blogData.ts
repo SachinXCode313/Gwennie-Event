@@ -3,6 +3,13 @@ import hinduwedding from '../assets/festive6.jpg';
 import destinationwedding from '../assets/wedding1.jpg';
 import mehendi from '../assets/mehndi.jpg';
 import catering from '../assets/corporate1.jpg';
+import birthdaymilestone from '../assets/birthday5.jpg'
+import themedbirthday from '../assets/birthday4.jpg';
+import corporateevent from '../assets/corporate5.jpg';
+import teambuilding from '../assets/corporate3.jpg';
+import socialparty from '../assets/social.jpg';
+import festivalcelebrate from '../assets/festive.jpg';
+import weddingphotography from '../assets/engagement5.jpg';
 
 export const blogPosts: BlogPost[] = [
   // Wedding Events (Priority - Featured and Multiple Posts)
@@ -152,7 +159,7 @@ export const blogPosts: BlogPost[] = [
     category: "Birthday Events",
     likes: 67,
     comments: 12,
-    image: "https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: birthdaymilestone
   },
   {
     id: 5,
@@ -190,7 +197,7 @@ export const blogPosts: BlogPost[] = [
     category: "Birthday Events",
     likes: 89,
     comments: 18,
-    image: "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: themedbirthday
   },
 
   // Corporate Events
@@ -235,7 +242,7 @@ export const blogPosts: BlogPost[] = [
     category: "Corporate Events",
     likes: 112,
     comments: 24,
-    image: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: corporateevent
   },
   {
     id: 7,
@@ -273,7 +280,7 @@ export const blogPosts: BlogPost[] = [
     category: "Corporate Events",
     likes: 78,
     comments: 15,
-    image: "https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: teambuilding
   },
 
   // Party Events
@@ -318,7 +325,7 @@ export const blogPosts: BlogPost[] = [
     category: "Party Events",
     likes: 94,
     comments: 21,
-    image: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: socialparty
   },
   {
     id: 9,
@@ -356,7 +363,7 @@ export const blogPosts: BlogPost[] = [
     category: "Party Events",
     likes: 126,
     comments: 28,
-    image: "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: festivalcelebrate
   },
 
   // Additional Wedding Content (Priority Service)
@@ -401,7 +408,7 @@ export const blogPosts: BlogPost[] = [
     category: "Wedding Events",
     likes: 143,
     comments: 19,
-    image: "https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: weddingphotography
   }
 ];
 

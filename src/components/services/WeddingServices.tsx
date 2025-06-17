@@ -17,8 +17,13 @@ import destinationwedding from "../../assets/destinationwedding.jpg";
 import mehndi from "../../assets/mehndi.jpg";
 import sangeet1 from "../../assets/sangeet1.jpg";
 import decor from "../../assets/decor.jpg";
+type PageType = "contact"
 
-const WeddingServices = () => {
+interface NavigationProps {
+  onNavigate: (page: PageType) => void;
+}
+
+const WeddingServices: React.FC<NavigationProps> = ({ onNavigate }) => {
   const weddingFeatures = [
     {
       title: "Destination Weddings",
@@ -137,7 +142,7 @@ const WeddingServices = () => {
               unforgettable wedding experiences that honor your love and
               heritage.
             </p>
-            <button className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
+            <button onClick={()=> onNavigate("contact")} className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
               <span className="flex items-center space-x-3">
                 <span>Plan Your Wedding</span>
                 <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
