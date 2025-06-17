@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Heart,
   Play,
@@ -13,8 +14,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 
-
-import home from "../assets/home3.mp4"; 
+import home from "../assets/home3.mp4";
 import logo from "../assets/Logo1.png";
 import wedding from "../assets/wedding1.png"; // Example image, replace with actual image path
 import birthday from "../assets/birthday1.jpg"; // Example image, replace with actual image path
@@ -27,96 +27,72 @@ import farewell from "../assets/farewell.jpg"; // Example image, replace with ac
 import date from "../assets/date.jpg"; // Example image, replace with actual image path
 import festive from "../assets/festive.jpg"; // Example image, replace with actual image path
 
-
-type PageType =
-  | "home"
-  | "blog"
-  | "gallery"
-  | "contact"
-  | "wedding"
-  | "birthday"
-  | "engagement"
-  | "anniversary"
-  | "inauguration"
-  | "corporate"
-  | "farewell"
-  | "proposal"
-  | "festive";
-
-interface NavigationProps {
-  onNavigate: (page: PageType) => void;
-}
-
-
-const HomePage: React.FC<NavigationProps> = ({
-  onNavigate,
-}) => {
+const HomePage = () => {
   const [currentStep, setCurrentStep] = useState(0);
-
+  const navigate = useNavigate();
   const services = [
-  {
-    title: "Wedding Planning",
-    description: "More than a wedding — it’s the royal beginning of forever",
-    image: wedding,
-    featured: true,
-    page: "wedding",
-  },
-  {
-    title: "Birthday Celebrations",
-    description: "Every birthday deserves a moment that feels like magic",
-    image: birthday,
-    page: "birthday",
-  },
-  {
-    title: "Corporate Events",
-    description: "Professional events with a personal touch",
-    image: corporate,
-    page: "corporate",
-  },
-  {
-    title: "Social Parties",
-    description: "Themed celebrations, festivals, and social gatherings",
-    image: social,
-    page: "gallery", // assuming social parties link to your gallery? Adjust if you have a separate page
-  },
-  {
-    title: "Engagement Ceremonies",
-    description: "Two hearts, one promise — sealed in style",
-    image: engagement,
-    page: "engagement",
-  },
-  {
-    title: "Anniversary Celebrations",
-    description: "Because every year of love deserves a new celebration",
-    image: anniversary,
-    page: "anniversary",
-  },
-  {
-    title: "Inauguration Events",
-    description: "New beginnings, beautifully launched",
-    image: inaugration,
-    page: "inauguration",
-  },
-  {
-    title: "Farewell Parties",
-    description: "Every hello and goodbye deserves a stylish celebration",
-    image: farewell,
-    page: "farewell",
-  },
-  {
-    title: "Proposal & Date Nights",
-    description: "When love speaks through ambiance",
-    image: date,
-    page: "proposal",
-  },
-  {
-    title: "Festive Parties",
-    description: "Celebrate every festival with sparkle and soul",
-    image: festive,
-    page: "festive",
-  },
-];
-
+    {
+      title: "Wedding Planning",
+      description: "More than a wedding — it’s the royal beginning of forever",
+      image: wedding,
+      featured: true,
+      page: "wedding",
+    },
+    {
+      title: "Birthday Celebrations",
+      description: "Every birthday deserves a moment that feels like magic",
+      image: birthday,
+      page: "birthday",
+    },
+    {
+      title: "Corporate Events",
+      description: "Professional events with a personal touch",
+      image: corporate,
+      page: "corporate",
+    },
+    {
+      title: "Social Parties",
+      description: "Themed celebrations, festivals, and social gatherings",
+      image: social,
+      page: "gallery", // assuming social parties link to your gallery? Adjust if you have a separate page
+    },
+    {
+      title: "Engagement Ceremonies",
+      description: "Two hearts, one promise — sealed in style",
+      image: engagement,
+      page: "engagement",
+    },
+    {
+      title: "Anniversary Celebrations",
+      description: "Because every year of love deserves a new celebration",
+      image: anniversary,
+      page: "anniversary",
+    },
+    {
+      title: "Inauguration Events",
+      description: "New beginnings, beautifully launched",
+      image: inaugration,
+      page: "inauguration",
+    },
+    {
+      title: "Farewell Parties",
+      description: "Every hello and goodbye deserves a stylish celebration",
+      image: farewell,
+      page: "farewell",
+    },
+    {
+      title: "Proposal & Date Nights",
+      description: "When love speaks through ambiance",
+      image: date,
+      page: "proposal",
+    },
+    {
+      title: "Festive Parties",
+      description: "Celebrate every festival with sparkle and soul",
+      image: festive,
+      page: "festive",
+    },
+  ];
 
   const galleryImages = [
     "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -169,8 +145,6 @@ const HomePage: React.FC<NavigationProps> = ({
     return () => clearInterval(interval);
   }, []);
 
-  
-
   return (
     <div className="min-h-screen">
       {/* Hero Section with Video Background */}
@@ -184,10 +158,7 @@ const HomePage: React.FC<NavigationProps> = ({
             playsInline
             className="w-full h-full object-cover"
           >
-            <source
-              src={home}
-              type="video/mp4"
-            />
+            <source src={home} type="video/mp4" />
             {/* Fallback image if video doesn't load */}
             <div className="w-full h-full bg-gradient-to-br from-wedding-brown to-wedding-burgundy"></div>
           </video>
@@ -220,7 +191,10 @@ const HomePage: React.FC<NavigationProps> = ({
             </p>
 
             {/* CTA Button */}
-            <button onClick={() => onNavigate("contact")} className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
+            <button
+              onClick={() => navigate("/contact")}
+              className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl"
+            >
               <span className="flex items-center space-x-3">
                 <span>Plan Your Event</span>
                 <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
@@ -315,7 +289,10 @@ const HomePage: React.FC<NavigationProps> = ({
                     <p className="text-white/90 leading-relaxed">
                       {service.description}
                     </p>
-                    <button onClick={() => onNavigate(service.page as PageType)} className="mt-4 text-wedding-gold hover:text-yellow-300 font-semibold flex items-center space-x-2 group-hover:translate-x-2 transition-transform">
+                    <button
+                      onClick={() => navigate(`/${service.page}`)}
+                      className="mt-4 text-wedding-gold hover:text-yellow-300 font-semibold flex items-center space-x-2 group-hover:translate-x-2 transition-transform"
+                    >
                       <span>Learn More</span>
                       <ArrowRight className="h-4 w-4" />
                     </button>
@@ -431,7 +408,10 @@ const HomePage: React.FC<NavigationProps> = ({
           </div>
 
           <div className="text-center mt-16">
-            <button onClick={() => onNavigate("contact")} className="bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
+            <button
+              onClick={() => navigate("/contact")}
+              className="bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl"
+            >
               Start Planning Today
             </button>
           </div>

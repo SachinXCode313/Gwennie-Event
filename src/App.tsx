@@ -1,4 +1,8 @@
 import React, { useState, useMemo, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route , useLocation} from "react-router-dom";
+import emailjs from "@emailjs/browser";
+emailjs.init("iTpt1koz5m-4FD130");
+
 import Navigation from "./components/Navigation";
 import Gallery from "./components/Gallery";
 import Contact from "./components/Contact";
@@ -8,6 +12,7 @@ import BlogCategories from "./components/BlogCategories";
 import BlogGrid from "./components/BlogGrid";
 import BlogPost from "./components/BlogPost";
 import Newsletter from "./components/Newsletter";
+import Career from './components/Career';
 import Footer from "./components/Footer";
 import WeddingServices from "./components/services/WeddingServices";
 import BirthdayServices from "./components/services/BirthdayServices";
@@ -22,23 +27,25 @@ import FestiveServices from "./components/services/FestiveServices";
 import { blogPosts as initialBlogPosts } from "./data/blogData";
 import { BlogPost as BlogPostType } from "./types/blog";
 
-type PageType =
-  | "home"
-  | "blog"
-  | "gallery"
-  | "contact"
-  | "wedding"
-  | "birthday"
-  | "engagement"
-  | "anniversary"
-  | "inauguration"
-  | "corporate"
-  | "farewell"
-  | "proposal"
-  | "festive";
+function ScrollToFirstSection() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // Attempt to find the first section with id="first-section"
+    const firstSection = document.getElementById("first-section");
+    if (firstSection) {
+      firstSection.scrollIntoView({ behavior: "auto", block: "start" });
+    } else {
+      // Fallback to top of the page if no first-section is found
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+  }, [pathname]);
+
+  return null;
+}
+
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<PageType>("home");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [showSearch, setShowSearch] = useState(false);
@@ -93,7 +100,6 @@ function App() {
         newLikedPosts.add(postId);
       }
 
-      // Immutably update likes count in posts state
       setBlogPosts((prevPosts) =>
         prevPosts.map((p) =>
           p.id === postId ? { ...p, likes: p.likes + (liked ? -1 : 1) } : p
@@ -110,78 +116,68 @@ function App() {
     setShowSearch(false);
   };
 
-  const handleNavigation = (page: PageType) => {
-    setCurrentPage(page);
-    setSelectedPost(null);
-    setSearchQuery("");
-    setShowSearch(false);
-  };
-
-  const pages: Record<PageType, JSX.Element> = {
-    home: (
-      <HomePage
-        onNavigate={handleNavigation}
-      />
-    ),
-    gallery: <Gallery />,
-    contact: <Contact />,
-    wedding: <WeddingServices onNavigate={handleNavigation} />,
-    birthday: <BirthdayServices onNavigate={handleNavigation} />,
-    engagement: <EngagementServices onNavigate={handleNavigation} />,
-    anniversary: <AnniversaryServices onNavigate={handleNavigation} />,
-    inauguration: <InaugurationServices onNavigate={handleNavigation} />,
-    corporate: <CorporateServices onNavigate={handleNavigation} />,
-    farewell: <FarewellServices onNavigate={handleNavigation} />,
-    proposal: <ProposalServices onNavigate={handleNavigation} />,
-    festive: <FestiveServices onNavigate={handleNavigation} />,
-    blog: (
-      <>
-        <BlogHero />
-        <BlogCategories
-          selectedCategory={selectedCategory}
-          onCategorySelect={handleCategorySelect}
-        />
-        <BlogGrid
-          posts={filteredPosts}
-          onPostClick={handlePostClick}
-          onLike={handleLike}
-          likedPosts={likedPosts}
-        />
-      </>
-    ),
-  };
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [currentPage, selectedPost]);
+  // useEffect(() => {
+  //   window.scrollTo({ top: 0, behavior: "smooth" });
+  // }, []);
 
   return (
-    <div className="min-h-screen bg-cream">
-      <Navigation
-        onSearchToggle={handleSearchToggle}
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-        showSearch={showSearch}
-        currentPage={currentPage}
-        onNavigate={handleNavigation}
-      />
-
-      {selectedPost ? (
-        <BlogPost
-          post={selectedPost}
-          onBack={handleBackToBlog}
-          onLike={handleLike}
-          isLiked={likedPosts.has(selectedPost.id)}
+    <Router >
+      <div className="min-h-screen bg-cream">
+        <ScrollToFirstSection />
+        <Navigation
+          onSearchToggle={handleSearchToggle}
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          showSearch={showSearch}
         />
-      ) : (
-        pages[currentPage] || pages["blog"]
-      )}
-
-      {currentPage === "home"}
-      <Footer
-        onNavigate={handleNavigation}
-      />
-    </div>
+        <Routes>
+          <Route
+            path="/"
+            element={<HomePage />}
+          />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/career" element={<Career />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/wedding" element={<WeddingServices />} />
+          <Route path="/birthday" element={<BirthdayServices />} />
+          <Route path="/engagement" element={<EngagementServices />} />
+          <Route path="/anniversary" element={<AnniversaryServices />} />
+          <Route path="/inauguration" element={<InaugurationServices />} />
+          <Route path="/corporate" element={<CorporateServices />} />
+          <Route path="/farewell" element={<FarewellServices />} />
+          <Route path="/proposal" element={<ProposalServices />} />
+          <Route path="/festive" element={<FestiveServices />} />
+          <Route
+            path="/blog"
+            element={
+              selectedPost ? (
+                <BlogPost
+                  post={selectedPost}
+                  onBack={handleBackToBlog}
+                  onLike={handleLike}
+                  isLiked={likedPosts.has(selectedPost.id)}
+                />
+              ) : (
+                <>
+                  <BlogHero />
+                  <BlogCategories
+                    selectedCategory={selectedCategory}
+                    onCategorySelect={handleCategorySelect}
+                  />
+                  <BlogGrid
+                    posts={filteredPosts}
+                    onPostClick={handlePostClick}
+                    onLike={handleLike}
+                    likedPosts={likedPosts}
+                  />
+                </>
+              )
+            }
+          />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

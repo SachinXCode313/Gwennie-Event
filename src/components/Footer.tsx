@@ -1,25 +1,10 @@
 import React from 'react';
 import { Heart, Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin,MessageCircle } from 'lucide-react';
-type PageType =
-  | "home"
-  | "blog"
-  | "gallery"
-  | "contact"
-  | "wedding"
-  | "birthday"
-  | "engagement"
-  | "anniversary"
-  | "inauguration"
-  | "corporate"
-  | "farewell"
-  | "proposal"
-  | "festive";
+import { useNavigate } from "react-router-dom";
 
-interface NavigationProps {
-  onNavigate: (page: PageType) => void;
-}
+const Footer: React.FC = () => {
+  const navigate = useNavigate();
 
-const Footer: React.FC<NavigationProps> = ({ onNavigate }) => {
   return (
     <footer className="bg-wedding-brown text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -64,11 +49,11 @@ const Footer: React.FC<NavigationProps> = ({ onNavigate }) => {
           <div>
             <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2 text-white/80">
-              <li><span onClick={() => onNavigate("wedding")} className="hover:text-wedding-gold transition-colors cursor-pointer">Wedding Planning</span></li>
-              <li><span onClick={() => onNavigate("birthday")} className="hover:text-wedding-gold transition-colors cursor-pointer">Birthday Celebrations</span></li>
-              <li><span onClick={() => onNavigate("corporate")} className="hover:text-wedding-gold transition-colors cursor-pointer">Corporate Events</span></li>
-              <li><span onClick={() => onNavigate("blog")} className="hover:text-wedding-gold transition-colors cursor-pointer">Blog</span></li>
-              <li><span onClick={() => onNavigate("contact")} className="hover:text-wedding-gold transition-colors cursor-pointer">Contact</span></li>
+              <li><span onClick={() => navigate("/wedding")} className="hover:text-wedding-gold transition-colors cursor-pointer">Wedding Planning</span></li>
+              <li><span onClick={() => navigate("/birthday")} className="hover:text-wedding-gold transition-colors cursor-pointer">Birthday Celebrations</span></li>
+              <li><span onClick={() => navigate("/corporate")} className="hover:text-wedding-gold transition-colors cursor-pointer">Corporate Events</span></li>
+              <li><span onClick={() => navigate("/blog")} className="hover:text-wedding-gold transition-colors cursor-pointer">Blog</span></li>
+              <li><span onClick={() => navigate("/contact")} className="hover:text-wedding-gold transition-colors cursor-pointer">Contact</span></li>
             </ul>
           </div>
 
@@ -76,15 +61,15 @@ const Footer: React.FC<NavigationProps> = ({ onNavigate }) => {
           <div>
             <h3 className="font-semibold text-lg mb-4">Services</h3>
             <ul className="space-y-2 text-white/80">
-              <li><span onClick={() => onNavigate("wedding")} className="hover:text-wedding-gold transition-colors cursor-pointer">Wedding Events</span></li>
-              <li><span onClick={() => onNavigate("birthday")} className="hover:text-wedding-gold transition-colors cursor-pointer">Birthday Parties</span></li>
-              <li><span onClick={() => onNavigate("engagement")} className="hover:text-wedding-gold transition-colors cursor-pointer">Engagement Ceremonies</span></li>
-              <li><span onClick={() => onNavigate("anniversary")} className="hover:text-wedding-gold transition-colors cursor-pointer">Anniversary Celebrations</span></li>
-              <li><span onClick={() => onNavigate("inauguration")} className="hover:text-wedding-gold transition-colors cursor-pointer">Inauguration Events</span></li>
-              <li><span onClick={() => onNavigate("corporate")} className="hover:text-wedding-gold transition-colors cursor-pointer">Corporate Events</span></li>
-              <li><span onClick={() => onNavigate("farewell")} className="hover:text-wedding-gold transition-colors cursor-pointer">Farewell Parties</span></li>
-              <li><span onClick={() => onNavigate("proposal")} className="hover:text-wedding-gold transition-colors cursor-pointer">Proposal & Date Nights</span></li>
-              <li><span onClick={() => onNavigate("festive")} className="hover:text-wedding-gold transition-colors cursor-pointer">Festive Parties</span></li>
+              <li><span onClick={() => navigate("/wedding")} className="hover:text-wedding-gold transition-colors cursor-pointer">Wedding Events</span></li>
+              <li><span onClick={() => navigate("/birthday")} className="hover:text-wedding-gold transition-colors cursor-pointer">Birthday Parties</span></li>
+              <li><span onClick={() => navigate("/engagement")} className="hover:text-wedding-gold transition-colors cursor-pointer">Engagement Ceremonies</span></li>
+              <li><span onClick={() => navigate("/anniversary")} className="hover:text-wedding-gold transition-colors cursor-pointer">Anniversary Celebrations</span></li>
+              <li><span onClick={() => navigate("/inauguration")} className="hover:text-wedding-gold transition-colors cursor-pointer">Inauguration Events</span></li>
+              <li><span onClick={() => navigate("/corporate")} className="hover:text-wedding-gold transition-colors cursor-pointer">Corporate Events</span></li>
+              <li><span onClick={() => navigate("/farewell")} className="hover:text-wedding-gold transition-colors cursor-pointer">Farewell Parties</span></li>
+              <li><span onClick={() => navigate("/proposal")} className="hover:text-wedding-gold transition-colors cursor-pointer">Proposal & Date Nights</span></li>
+              <li><span onClick={() => navigate("/festive")} className="hover:text-wedding-gold transition-colors cursor-pointer">Festive Parties</span></li>
             </ul>
           </div>
 

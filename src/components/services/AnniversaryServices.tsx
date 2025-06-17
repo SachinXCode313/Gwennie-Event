@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Heart,
   Calendar,
@@ -18,14 +19,8 @@ import romantic from "../../assets/anniversary2.jpg";
 import family from "../../assets/anniversary3.jpg";
 import memory from "../../assets/anniversary4.jpg";
 
-type PageType = "contact"
-
-
-interface NavigationProps {
-  onNavigate: (page: PageType) => void;
-}
-
-const AnniversaryServices: React.FC<NavigationProps> = ({ onNavigate }) => {
+const AnniversaryServices: React.FC = () => {
+    const navigate = useNavigate();
   const anniversaryFeatures = [
     {
       title: "Milestone Anniversaries",
@@ -144,7 +139,7 @@ const AnniversaryServices: React.FC<NavigationProps> = ({ onNavigate }) => {
               Honor your journey of love with elegant anniversary celebrations
               that commemorate your beautiful years together.
             </p>
-            <button onClick={()=> onNavigate("contact")} className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
+            <button onClick={() => navigate("/contact")} className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
               <span className="flex items-center space-x-3">
                 <span>Plan Your Anniversary</span>
                 <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />

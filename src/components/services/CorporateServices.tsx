@@ -18,13 +18,10 @@ import parties from "../../assets/corporate3.jpg";
 import brand from "../../assets/corporate4.jpg";
 import product from "../../assets/corporate5.jpg";
 
-type PageType = "contact"
+import { useNavigate } from "react-router-dom";
 
-interface NavigationProps {
-  onNavigate: (page: PageType) => void;
-}
-
-const CorporateServices: React.FC<NavigationProps> = ({ onNavigate }) => {
+const CorporateServices: React.FC = () => {
+  const navigate = useNavigate();
   const corporateFeatures = [
     {
       title: "Conference Management",
@@ -144,7 +141,7 @@ const CorporateServices: React.FC<NavigationProps> = ({ onNavigate }) => {
               Elevate your business gatherings with professional corporate event
               management that impresses clients and motivates teams.
             </p>
-            <button onClick={()=> onNavigate("contact")} className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
+            <button onClick={() => navigate("/contact")} className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
               <span className="flex items-center space-x-3">
                 <span>Plan Your Event</span>
                 <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />

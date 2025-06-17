@@ -10,7 +10,9 @@ import {
   Instagram,
   MessageCircle,
 } from "lucide-react";
+import emailjs from "@emailjs/browser"; // Import EmailJS
 import bg from "../assets/festive6.jpg"; // Replace with your background image
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -22,6 +24,8 @@ const Contact = () => {
     budget: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<string | null>(null);
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -36,8 +40,43 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Handle form submission here
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    // EmailJS send function
+    emailjs
+      .send(
+        "service_9nk1ze8", // Replace with your EmailJS Service ID
+        "template_v8nasuh", // Replace with your EmailJS Template ID
+        {
+          ...formData,
+          to_email: "gwennieseventorganiser@gmail.com", // Replace with the recipient's email
+        },
+        "iTpt1koz5m-4FD130" // Replace with your EmailJS Public Key
+      )
+      .then(
+        (result) => {
+          console.log("Email sent successfully:", result.text);
+          setSubmitStatus("success");
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            eventType: "",
+            eventDate: "",
+            guestCount: "",
+            budget: "",
+            message: "",
+          }); // Reset form
+        },
+        (error) => {
+          console.error("Email sending failed:", error.text);
+          setSubmitStatus("error");
+        }
+      )
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   return (
@@ -140,9 +179,7 @@ const Contact = () => {
               </h3>
               <p className="text-gray-600 mb-2">We're available</p>
               <p className="text-wedding-burgundy font-semibold text-sm">
-                Mon - Sat: 9:00 AM - 8:00 PM
-                <br />
-                Sun: 10:00 AM - 6:00 PM
+                10:00 AM - 7:00 PM
               </p>
             </div>
           </div>
@@ -207,7 +244,6 @@ const Contact = () => {
                       onChange={handleInputChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wedding-brown/30 focus:border-wedding-brown transition-colors"
-                      placeholder="+91 98765 43210"
                     />
                   </div>
                   <div>
@@ -301,12 +337,28 @@ const Contact = () => {
                   ></textarea>
                 </div>
 
+                {submitStatus === "success" && (
+                  <p className="text-green-600 font-semibold">
+                    Your message has been sent successfully! We'll get back to you soon.
+                  </p>
+                )}
+                {submitStatus === "error" && (
+                  <p className="text-red-600 font-semibold">
+                    Failed to send your message. Please try again later.
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full bg-wedding-brown hover:bg-wedding-burgundy text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300 flex items-center justify-center space-x-2"
+                  disabled={isSubmitting}
+                  className={`w-full px-8 py-4 rounded-lg font-semibold transition-colors duration-300 flex items-center justify-center space-x-2 ${
+                    isSubmitting
+                      ? "bg-gray-400 cursor-not-allowed"
+                      : "bg-wedding-brown hover:bg-wedding-burgundy text-white"
+                  }`}
                 >
                   <Send className="h-5 w-5" />
-                  <span>Send Message</span>
+                  <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
                 </button>
               </form>
             </div>
@@ -358,11 +410,9 @@ const Contact = () => {
                         Business Hours:
                       </p>
                       <p className="text-gray-600">
-                        Monday - Saturday: 9:00 AM - 8:00 PM
+                        10:00 AM - 7:00 PM
                       </p>
-                      <p className="text-gray-600">
-                        Sunday: 10:00 AM - 6:00 PM
-                      </p>
+
                     </div>
                   </div>
                 </div>
