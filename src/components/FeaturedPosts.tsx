@@ -1,6 +1,8 @@
 import React from 'react';
 import { Clock, User, ArrowRight } from 'lucide-react';
-
+import hinduwedding from '../assets/festive6.jpg';
+import destinationwedding from '../assets/wedding1.jpg';
+import mehendi from '../assets/mehndi.jpg';
 const FeaturedPosts = () => {
   const featuredPosts = [
     {
@@ -11,7 +13,7 @@ const FeaturedPosts = () => {
       readTime: "12 min read",
       date: "March 15, 2024",
       category: "Traditional Ceremonies",
-      image: "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: hinduwedding,
       featured: true
     },
     {
@@ -22,7 +24,7 @@ const FeaturedPosts = () => {
       readTime: "8 min read",
       date: "March 10, 2024",
       category: "Venues",
-      image: "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: destinationwedding
     },
     {
       id: 3,
@@ -32,7 +34,7 @@ const FeaturedPosts = () => {
       readTime: "6 min read",
       date: "March 8, 2024",
       category: "Beauty & Style",
-      image: "https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: mehendi
     },
     {
       id: 4,

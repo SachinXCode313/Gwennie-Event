@@ -2,43 +2,37 @@ import React from 'react';
 import { Building, Scissors, Camera, Music, Palette, Users, ArrowRight, Star, CheckCircle } from 'lucide-react';
 import Inauguration from "../../assets/anivarsary.mp4";
 import logo from "../../assets/Logo1.png";
+import guest from "../../assets/inaugration.jpg";
+import business from "../../assets/inaugration1.jpg";
+import ribbon from "../../assets/inaugration2.jpg";
+import event from "../../assets/inaugration4.jpg";
+import media from "../../assets/inaugration5.jpg";
 const InaugurationServices = () => {
   const inaugurationFeatures = [
     {
       title: "Business Inaugurations",
       description: "Grand opening ceremonies for offices, stores, and business establishments",
-      icon: Building,
-      image: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: business
     },
     {
       title: "Ribbon Cutting Ceremonies",
       description: "Traditional ribbon cutting with VIP guests and media coverage",
-      icon: Scissors,
-      image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=600"
-    },
-    {
-      title: "Cultural Programs",
-      description: "Traditional ceremonies with priests, cultural performances, and rituals",
-      icon: Music,
-      image: "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: ribbon
     },
     {
       title: "Event Decorations",
       description: "Professional decorations with flowers, banners, and ceremonial setups",
-      icon: Palette,
-      image: "https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: event
     },
     {
       title: "Media Coverage",
       description: "Professional photography and videography for documentation and publicity",
-      icon: Camera,
-      image: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: media
     },
     {
       title: "Guest Management",
       description: "VIP guest coordination, seating arrangements, and hospitality services",
-      icon: Users,
-      image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: guest
     }
   ];
 
@@ -93,7 +87,7 @@ const InaugurationServices = () => {
         <div className="relative z-10 h-full flex items-center justify-center text-center text-white">
           <div className="max-w-4xl mx-auto px-4">
                         <div className="flex items-center justify-center ">
-              <img src={logo} alt="logo" className="w-28 h-full" />
+              <img src={logo} alt="logo" className="w-40 h-full" />
             </div>
             <div className="flex items-center justify-center mb-8">
               <h1 className="text-5xl md:text-7xl font-playfair font-bold">
@@ -130,7 +124,6 @@ const InaugurationServices = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {inaugurationFeatures.map((feature, index) => {
-              const IconComponent = feature.icon;
               return (
                 <div
                   key={index}
@@ -143,11 +136,7 @@ const InaugurationServices = () => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4">
-                      <div className="bg-wedding-gold text-wedding-brown p-2 rounded-full">
-                        <IconComponent className="h-6 w-6" />
-                      </div>
-                    </div>
+                    
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-playfair font-bold text-wedding-brown mb-3">
@@ -165,7 +154,7 @@ const InaugurationServices = () => {
       </section>
 
       {/* Packages Section */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-playfair font-bold text-wedding-brown mb-6">
@@ -222,7 +211,7 @@ const InaugurationServices = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Gallery Section */}
       {/* <section className="py-20 bg-gradient-to-br from-wedding-sage to-green-600">

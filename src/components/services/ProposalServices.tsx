@@ -1,43 +1,38 @@
 import React from 'react';
 import { Heart, Camera, Music, Palette, MapPin, Gift, ArrowRight, Star, CheckCircle } from 'lucide-react';
-
+import proposal from "../../assets/engagement4.mp4";
+import logo from "../../assets/Logo1.png";
+import ambiance  from "../../assets/date.jpg";
+import custom from "../../assets/date1.jpg";
+import night from "../../assets/date2.jpg";
+import keepsakes from "../../assets/date3.jpg";
+import romatic from "../../assets/date4.jpg";
 const ProposalServices = () => {
   const proposalFeatures = [
     {
       title: "Romantic Proposals",
       description: "Intimate and personalized marriage proposal setups that create magical moments",
-      icon: Heart,
-      image: "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: romatic
     },
     {
       title: "Date Night Planning",
       description: "Romantic date experiences from candlelit dinners to adventure dates",
-      icon: MapPin,
-      image: "https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg?auto=compress&cs=tinysrgb&w=600"
-    },
-    {
-      title: "Surprise Photography",
-      description: "Hidden photographers to capture the perfect proposal moment and reactions",
-      icon: Camera,
-      image: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: night
     },
     {
       title: "Romantic Ambiance",
       description: "Beautiful lighting, music, and decorations to set the perfect mood",
-      icon: Music,
-      image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: ambiance
     },
     {
       title: "Custom Decorations",
       description: "Personalized setups with flowers, candles, and meaningful elements",
-      icon: Palette,
-      image: "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: custom
     },
     {
       title: "Memory Keepsakes",
       description: "Custom gifts and mementos to commemorate your special moment",
-      icon: Gift,
-      image: "https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: keepsakes
     }
   ];
 
@@ -83,7 +78,7 @@ const ProposalServices = () => {
             playsInline
             className="w-full h-full object-cover"
           >
-            <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761" type="video/mp4" />
+            <source src={proposal} type="video/mp4" />
             <div className="w-full h-full bg-gradient-to-br from-pink-500 to-red-600"></div>
           </video>
           <div className="absolute inset-0 bg-black/40"></div>
@@ -91,8 +86,10 @@ const ProposalServices = () => {
 
         <div className="relative z-10 h-full flex items-center justify-center text-center text-white">
           <div className="max-w-4xl mx-auto px-4">
+            <div className="flex items-center justify-center ">
+              <img src={logo} alt="logo" className="w-40 h-full" />
+            </div>
             <div className="flex items-center justify-center mb-8">
-              <Heart className="h-16 w-16 text-wedding-gold fill-current mr-4" />
               <h1 className="text-5xl md:text-7xl font-playfair font-bold">
                 Proposal & Date Setup
               </h1>
@@ -127,7 +124,6 @@ const ProposalServices = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {proposalFeatures.map((feature, index) => {
-              const IconComponent = feature.icon;
               return (
                 <div
                   key={index}
@@ -140,11 +136,7 @@ const ProposalServices = () => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4">
-                      <div className="bg-wedding-gold text-wedding-brown p-2 rounded-full">
-                        <IconComponent className="h-6 w-6" />
-                      </div>
-                    </div>
+                   
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-playfair font-bold text-wedding-brown mb-3">

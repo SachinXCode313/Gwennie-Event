@@ -122,7 +122,7 @@ const WeddingServices = () => {
         <div className="relative z-10 h-full flex items-center justify-center text-center text-white">
           <div className="max-w-4xl mx-auto px-4">
             <div className="flex items-center justify-center ">
-              <img src={logo} alt="logo" className="w-28 h-full" />
+              <img src={logo} alt="logo" className="w-40 h-full" />
             </div>
             <div className="flex items-center justify-center mb-8">
               <h1 className="text-5xl md:text-7xl font-playfair font-bold">

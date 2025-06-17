@@ -1,28 +1,42 @@
-import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Send, Heart, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
-
+import React, { useState } from "react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Send,
+  Heart,
+  Facebook,
+  Instagram,
+  MessageCircle,
+} from "lucide-react";
+import bg from "../assets/festive6.jpg"; // Replace with your background image
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    eventType: '',
-    eventDate: '',
-    guestCount: '',
-    budget: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    eventType: "",
+    eventDate: "",
+    guestCount: "",
+    budget: "",
+    message: "",
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     // Handle form submission here
   };
 
@@ -32,13 +46,13 @@ const Contact = () => {
       <section className="relative h-96 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1200"
+            src={bg}
             alt="Contact Hero"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
-        
+
         <div className="relative z-10 h-full flex items-center justify-center text-center text-white">
           <div className="max-w-4xl mx-auto px-4">
             <div className="flex items-center justify-center mb-6">
@@ -48,7 +62,8 @@ const Contact = () => {
               </h1>
             </div>
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
-              Let's discuss your dream event and bring your vision to life with our expert planning services
+              Let's discuss your dream event and bring your vision to life with
+              our expert planning services
             </p>
           </div>
         </div>
@@ -62,7 +77,8 @@ const Contact = () => {
               Get in Touch
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We're here to help you plan the perfect event. Reach out to us through any of the following channels.
+              We're here to help you plan the perfect event. Reach out to us
+              through any of the following channels.
             </p>
           </div>
 
@@ -75,11 +91,13 @@ const Contact = () => {
                 Phone
               </h3>
               <p className="text-gray-600 mb-2">Call us directly</p>
-              <a href="tel:+919876543210" className="text-wedding-burgundy font-semibold hover:text-wedding-brown transition-colors">
-                +91 98765 43210
+              <a
+                href="tel:+917728060071"
+                className="text-wedding-burgundy font-semibold hover:text-wedding-brown transition-colors"
+              >
+                +91 7728060071
               </a>
             </div>
-
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
               <div className="bg-wedding-gold text-wedding-brown w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Mail className="h-8 w-8" />
@@ -88,11 +106,13 @@ const Contact = () => {
                 Email
               </h3>
               <p className="text-gray-600 mb-2">Send us a message</p>
-              <a href="mailto:info@shaadisamachar.com" className="text-wedding-burgundy font-semibold hover:text-wedding-brown transition-colors">
-                info@shaadisamachar.com
+              <a
+                href="mailto:gwennieseventorganiser@gmail.com"
+                className="text-wedding-burgundy font-semibold hover:text-wedding-brown transition-colors break-words"
+              >
+                gwennieseventorganiser@gmail.com
               </a>
             </div>
-
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
               <div className="bg-wedding-rose text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MapPin className="h-8 w-8" />
@@ -101,12 +121,16 @@ const Contact = () => {
                 Address
               </h3>
               <p className="text-gray-600 mb-2">Visit our office</p>
-              <p className="text-wedding-burgundy font-semibold text-sm">
-                308 Vijay Path, Gurunanak Pura<br />
+              <a
+                href="https://maps.app.goo.gl/x7sSt5sXY8DibR93A"
+                className="text-wedding-burgundy font-semibold text-sm hover:text-wedding-brown transition-colors"
+              >
+                308 Vijay Path, Gurunanak Pura
+                <br />
                 Tilak Nagar, Jaipur, Rajasthan
-              </p>
+              </a>
             </div>
-
+            
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
               <div className="bg-wedding-burgundy text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Clock className="h-8 w-8" />
@@ -116,7 +140,8 @@ const Contact = () => {
               </h3>
               <p className="text-gray-600 mb-2">We're available</p>
               <p className="text-wedding-burgundy font-semibold text-sm">
-                Mon - Sat: 9:00 AM - 8:00 PM<br />
+                Mon - Sat: 9:00 AM - 8:00 PM
+                <br />
                 Sun: 10:00 AM - 6:00 PM
               </p>
             </div>
@@ -134,7 +159,8 @@ const Contact = () => {
                 Plan Your Event
               </h2>
               <p className="text-gray-600 mb-8">
-                Fill out the form below and we'll get back to you within 24 hours to discuss your event requirements.
+                Fill out the form below and we'll get back to you within 24
+                hours to discuss your event requirements.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -291,7 +317,8 @@ const Contact = () => {
                 Visit Our Office
               </h2>
               <p className="text-gray-600 mb-8">
-                Located in the heart of Jaipur, our office is easily accessible and we welcome you to visit us for a personal consultation.
+                Located in the heart of Jaipur, our office is easily accessible
+                and we welcome you to visit us for a personal consultation.
               </p>
 
               <div className="bg-gray-100 rounded-2xl overflow-hidden shadow-lg">
@@ -315,16 +342,27 @@ const Contact = () => {
                   <div className="flex items-start space-x-3">
                     <MapPin className="h-5 w-5 text-wedding-burgundy mt-1" />
                     <div>
-                      <p className="font-semibold text-wedding-brown">Address:</p>
-                      <p className="text-gray-600">308 Vijay Path, Gurunanak Pura, Tilak Nagar, Jaipur, Rajasthan</p>
+                      <p className="font-semibold text-wedding-brown">
+                        Address:
+                      </p>
+                      <p className="text-gray-600">
+                        308 Vijay Path, Gurunanak Pura, Tilak Nagar, Jaipur,
+                        Rajasthan
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
                     <Clock className="h-5 w-5 text-wedding-burgundy mt-1" />
                     <div>
-                      <p className="font-semibold text-wedding-brown">Business Hours:</p>
-                      <p className="text-gray-600">Monday - Saturday: 9:00 AM - 8:00 PM</p>
-                      <p className="text-gray-600">Sunday: 10:00 AM - 6:00 PM</p>
+                      <p className="font-semibold text-wedding-brown">
+                        Business Hours:
+                      </p>
+                      <p className="text-gray-600">
+                        Monday - Saturday: 9:00 AM - 8:00 PM
+                      </p>
+                      <p className="text-gray-600">
+                        Sunday: 10:00 AM - 6:00 PM
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -342,34 +380,29 @@ const Contact = () => {
             Follow Our Journey
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Stay connected with us on social media for the latest event inspiration, behind-the-scenes moments, and client celebrations.
+            Stay connected with us on social media for the latest event
+            inspiration, behind-the-scenes moments, and client celebrations.
           </p>
-          
+
           <div className="flex justify-center space-x-6 mb-8">
-            <a href="#" className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-colors duration-300">
+            <a
+                href="https://www.facebook.com/profile.php?id=61577036553067"
+              className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-colors duration-300"
+            >
               <Facebook className="h-6 w-6" />
             </a>
-            <a href="#" className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-colors duration-300">
+            <a
+                href="https://www.instagram.com/gwennies_events/"
+              className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-colors duration-300"
+            >
               <Instagram className="h-6 w-6" />
             </a>
-            <a href="#" className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-colors duration-300">
-              <Twitter className="h-6 w-6" />
+            <a
+                href="https://api.whatsapp.com/send/?phone=7728060071&text&type=phone_number&app_absent=0"
+              className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-colors duration-300"
+            >
+              <MessageCircle className="h-6 w-6" />
             </a>
-            <a href="#" className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-colors duration-300">
-              <Youtube className="h-6 w-6" />
-            </a>
-          </div>
-
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-            <h3 className="text-xl font-playfair font-bold mb-2">
-              Ready to Start Planning?
-            </h3>
-            <p className="text-white/80 mb-4">
-              Book a free consultation and let's discuss your dream event
-            </p>
-            <button className="bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-8 py-3 rounded-full font-semibold transition-colors duration-300">
-              Schedule Consultation
-            </button>
           </div>
         </div>
       </section>

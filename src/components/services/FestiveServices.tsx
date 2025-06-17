@@ -2,43 +2,37 @@ import React from 'react';
 import { Sparkles, Music, Camera, Palette, Users, Gift, ArrowRight, Star, CheckCircle } from 'lucide-react';
 import festive from "../../assets/festive2.mp4";
 import logo from "../../assets/Logo1.png";
+import community from "../../assets/festive.jpg";
+import cultural from "../../assets/festive5.jpg";
+import festival from "../../assets/festive1.jpg";
+import themed from "../../assets/festive6.jpg";
+import traditional from "../../assets/festive3.jpg";
 const FestiveServices = () => {
   const festiveFeatures = [
     {
       title: "Festival Celebrations",
       description: "Traditional Indian festivals like Diwali, Holi, Navratri with authentic cultural elements",
-      icon: Sparkles,
-      image: "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: festival
     },
     {
       title: "Cultural Programs",
       description: "Traditional dance, music performances, and cultural activities for authentic celebrations",
-      icon: Music,
-      image: "https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: cultural
     },
     {
       title: "Themed Decorations",
       description: "Festival-specific decorations with rangoli, lights, and traditional elements",
-      icon: Palette,
-      image: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: themed
     },
     {
       title: "Community Events",
       description: "Large-scale community celebrations bringing people together for festivals",
-      icon: Users,
-      image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=600"
-    },
-    {
-      title: "Photography Services",
-      description: "Capture the vibrant colors and joyful moments of festival celebrations",
-      icon: Camera,
-      image: "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: community
     },
     {
       title: "Traditional Activities",
       description: "Authentic festival activities, games, and interactive experiences for all ages",
-      icon: Gift,
-      image: "https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: traditional
     }
   ];
 
@@ -93,7 +87,7 @@ const FestiveServices = () => {
         <div className="relative z-10 h-full flex items-center justify-center text-center text-white">
           <div className="max-w-4xl mx-auto px-4">
             <div className="flex items-center justify-center ">
-              <img src={logo} alt="logo" className="w-28 h-full" />
+              <img src={logo} alt="logo" className="w-40 h-full" />
             </div>
             <div className="flex items-center justify-center mb-8">
               <h1 className="text-5xl md:text-7xl font-playfair font-bold">
@@ -130,7 +124,6 @@ const FestiveServices = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {festiveFeatures.map((feature, index) => {
-              const IconComponent = feature.icon;
               return (
                 <div
                   key={index}
@@ -143,11 +136,7 @@ const FestiveServices = () => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4">
-                      <div className="bg-wedding-gold text-wedding-brown p-2 rounded-full">
-                        <IconComponent className="h-6 w-6" />
-                      </div>
-                    </div>
+                    
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-playfair font-bold text-wedding-brown mb-3">

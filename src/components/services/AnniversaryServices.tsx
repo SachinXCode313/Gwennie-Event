@@ -12,54 +12,41 @@ import {
 } from "lucide-react";
 import anniversary from "../../assets/video1.mp4";
 import logo from "../../assets/Logo1.png";
+import entertainment from "../../assets/anniversary.jpg";
+import milestone from "../../assets/anniversary1.jpg";
+import romantic from "../../assets/anniversary2.jpg";
+import family from "../../assets/anniversary3.jpg";
+import memory from "../../assets/anniversary4.jpg";
 const AnniversaryServices = () => {
   const anniversaryFeatures = [
     {
       title: "Milestone Anniversaries",
       description:
         "Celebrate 25th, 50th golden jubilee and other milestone anniversaries with elegance",
-      icon: Calendar,
-      image:
-        "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: milestone
     },
     {
       title: "Romantic Celebrations",
       description:
         "Intimate anniversary dinners and romantic celebrations for couples",
-      icon: Heart,
-      image:
-        "https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: romantic
     },
     {
       title: "Family Gatherings",
       description:
         "Large family celebrations honoring years of love and commitment",
-      icon: Users,
-      image:
-        "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: family
     },
     {
       title: "Memory Lane Themes",
       description: "Recreate wedding themes and memories from your special day",
-      icon: Palette,
-      image:
-        "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=600",
-    },
-    {
-      title: "Photography Services",
-      description:
-        "Professional photography to capture your continued love story",
-      icon: Camera,
-      image:
-        "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: memory
     },
     {
       title: "Entertainment",
       description:
         "Live music, dance performances, and entertainment for all ages",
-      icon: Music,
-      image:
-        "https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: entertainment,
     },
   ];
 
@@ -135,7 +122,7 @@ const AnniversaryServices = () => {
         <div className="relative z-10 h-full flex items-center justify-center text-center text-white">
           <div className="max-w-4xl mx-auto px-4">
             <div className="flex items-center justify-center ">
-              <img src={logo} alt="logo" className="w-28 h-full" />
+              <img src={logo} alt="logo" className="w-40 h-full" />
             </div>
             <div className="flex items-center justify-center mb-8">
               <h1 className="text-5xl md:text-7xl font-playfair font-bold">
@@ -174,7 +161,6 @@ const AnniversaryServices = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {anniversaryFeatures.map((feature, index) => {
-              const IconComponent = feature.icon;
               return (
                 <div
                   key={index}
@@ -187,11 +173,7 @@ const AnniversaryServices = () => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4">
-                      <div className="bg-wedding-gold text-wedding-brown p-2 rounded-full">
-                        <IconComponent className="h-6 w-6" />
-                      </div>
-                    </div>
+                    
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-playfair font-bold text-wedding-brown mb-3">

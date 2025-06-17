@@ -1,44 +1,40 @@
 import React from 'react';
 import { Users, Heart, Camera, Music, Palette, Gift, ArrowRight, Star, CheckCircle } from 'lucide-react';
-
+import farewell from "../../assets/farewell.mp4";
+import logo from "../../assets/Logo1.png";
+import parties from "../../assets/farewell.jpg";
+import memory from "../../assets/farewell1.jpg";
+import welcome from "../../assets/farewell2.jpg";
+import themed from "../../assets/farewell3.jpg";
+import entertainment   from "../../assets/farewell4.jpg";
 const FarewellServices = () => {
   const farewellFeatures = [
     {
       title: "Farewell Parties",
       description: "Memorable send-off celebrations for colleagues, friends, and loved ones",
-      icon: Users,
-      image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: parties
     },
     {
       title: "Welcome Celebrations",
       description: "Warm welcome parties for new team members and special guests",
-      icon: Heart,
-      image: "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: welcome
     },
     {
       title: "Memory Documentation",
       description: "Professional photography and videography to capture precious moments",
-      icon: Camera,
-      image: "https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: memory
     },
     {
       title: "Entertainment Programs",
       description: "Live music, speeches, and interactive activities for memorable experiences",
-      icon: Music,
-      image: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: entertainment
     },
     {
       title: "Themed Decorations",
       description: "Personalized decorations reflecting the guest of honor's journey and achievements",
-      icon: Palette,
-      image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: themed
     },
-    {
-      title: "Memory Gifts",
-      description: "Customized keepsakes and memory books to commemorate the occasion",
-      icon: Gift,
-      image: "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600"
-    }
+
   ];
 
   const farewellPackages = [
@@ -83,7 +79,7 @@ const FarewellServices = () => {
             playsInline
             className="w-full h-full object-cover"
           >
-            <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761" type="video/mp4" />
+            <source src={farewell} type="video/mp4" />
             <div className="w-full h-full bg-gradient-to-br from-blue-600 to-purple-700"></div>
           </video>
           <div className="absolute inset-0 bg-black/40"></div>
@@ -91,8 +87,10 @@ const FarewellServices = () => {
 
         <div className="relative z-10 h-full flex items-center justify-center text-center text-white">
           <div className="max-w-4xl mx-auto px-4">
+            <div className="flex items-center justify-center ">
+              <img src={logo} alt="logo" className="w-40 h-full" />
+            </div>
             <div className="flex items-center justify-center mb-8">
-              <Users className="h-16 w-16 text-wedding-gold mr-4" />
               <h1 className="text-5xl md:text-7xl font-playfair font-bold">
                 Farewell & Welcome
               </h1>
@@ -127,7 +125,6 @@ const FarewellServices = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {farewellFeatures.map((feature, index) => {
-              const IconComponent = feature.icon;
               return (
                 <div
                   key={index}
@@ -140,11 +137,7 @@ const FarewellServices = () => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4">
-                      <div className="bg-wedding-gold text-wedding-brown p-2 rounded-full">
-                        <IconComponent className="h-6 w-6" />
-                      </div>
-                    </div>
+
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-playfair font-bold text-wedding-brown mb-3">

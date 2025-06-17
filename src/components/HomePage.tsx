@@ -26,7 +26,31 @@ import inaugration from "../assets/inaugration.jpg"; // Example image, replace w
 import farewell from "../assets/farewell.jpg"; // Example image, replace with actual image path
 import date from "../assets/date.jpg"; // Example image, replace with actual image path
 import festive from "../assets/festive.jpg"; // Example image, replace with actual image path
-const HomePage = () => {
+
+
+type PageType =
+  | "home"
+  | "blog"
+  | "gallery"
+  | "contact"
+  | "wedding"
+  | "birthday"
+  | "engagement"
+  | "anniversary"
+  | "inauguration"
+  | "corporate"
+  | "farewell"
+  | "proposal"
+  | "festive";
+
+interface NavigationProps {
+  onNavigate: (page: PageType) => void;
+}
+
+
+const HomePage: React.FC<NavigationProps> = ({
+  onNavigate,
+}) => {
   const [currentStep, setCurrentStep] = useState(0);
 
   const services = [
@@ -196,7 +220,7 @@ const HomePage = () => {
             </p>
 
             {/* CTA Button */}
-            <button className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
+            <button onClick={() => onNavigate("contact")} className="group bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
               <span className="flex items-center space-x-3">
                 <span>Plan Your Event</span>
                 <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
@@ -291,7 +315,7 @@ const HomePage = () => {
                     <p className="text-white/90 leading-relaxed">
                       {service.description}
                     </p>
-                    <button className="mt-4 text-wedding-gold hover:text-yellow-300 font-semibold flex items-center space-x-2 group-hover:translate-x-2 transition-transform">
+                    <button onClick={() => onNavigate(service.page as PageType)} className="mt-4 text-wedding-gold hover:text-yellow-300 font-semibold flex items-center space-x-2 group-hover:translate-x-2 transition-transform">
                       <span>Learn More</span>
                       <ArrowRight className="h-4 w-4" />
                     </button>
@@ -407,7 +431,7 @@ const HomePage = () => {
           </div>
 
           <div className="text-center mt-16">
-            <button className="bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
+            <button onClick={() => onNavigate("contact")} className="bg-wedding-gold hover:bg-yellow-500 text-wedding-brown px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
               Start Planning Today
             </button>
           </div>

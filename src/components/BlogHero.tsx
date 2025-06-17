@@ -8,7 +8,7 @@ const BlogHero = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="text-center">
                       <div className="flex items-center justify-center ">
-              <img src={logo} alt="logo" className="w-28 h-full" />
+              <img src={logo} alt="logo" className="w-40 h-full" />
             </div>
           <div className="flex items-center justify-center mb-6">
             <h1 className="text-4xl md:text-6xl font-playfair font-bold">
@@ -42,7 +42,7 @@ const BlogHero = () => {
             </div>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 max-w-4xl mx-auto">
+          {/* <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 max-w-4xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
               <div>
                 <div className="text-2xl font-bold text-wedding-gold">500+</div>
@@ -61,7 +61,7 @@ const BlogHero = () => {
                 <div className="text-sm text-white/80">Happy Families</div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

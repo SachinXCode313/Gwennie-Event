@@ -12,47 +12,43 @@ import {
 } from "lucide-react";
 import birthday from "../../assets/birthday.mp4";
 import logo from "../../assets/Logo1.png";
+import kidsbirthday from "../../assets/birthday4.jpg";
+import adultbirthday from "../../assets/birthday2.jpg";
+import themedbirthday from "../../assets/birthday3.jpg";
+import entertainmentbirthday from "../../assets/birthday6.jpg";
+import photographyservice from "../../assets/birthday5.jpg";
+
 const BirthdayServices = () => {
   const birthdayFeatures = [
     {
       title: "Kids Birthday Parties",
       description:
         "Magical themed parties with entertainment, games, and age-appropriate activities",
-      icon: Gift,
-      image:
-        "https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: kidsbirthday,
     },
     {
       title: "Adult Celebrations",
       description:
         "Sophisticated milestone birthday parties with elegant themes and entertainment",
-      icon: Cake,
-      image:
-        "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: adultbirthday,
     },
     {
       title: "Themed Decorations",
       description:
         "Custom decorations matching your favorite themes, colors, and personality",
-      icon: Palette,
-      image:
-        "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: themedbirthday,
     },
     {
       title: "Entertainment & Games",
       description:
         "Professional entertainers, DJs, games, and interactive activities for all ages",
-      icon: Music,
-      image:
-        "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: entertainmentbirthday,
     },
     {
       title: "Photography Services",
       description:
         "Capture every smile and precious moment with professional birthday photography",
-      icon: Camera,
-      image:
-        "https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: photographyservice,
     },
   ];
 
@@ -126,7 +122,7 @@ const BirthdayServices = () => {
         <div className="relative z-10 h-full flex items-center justify-center text-center text-white">
           <div className="max-w-4xl mx-auto px-4">
             <div className="flex items-center justify-center ">
-              <img src={logo} alt="logo" className="w-28 h-full" />
+              <img src={logo} alt="logo" className="w-40 h-full" />
             </div>
             <div className="flex items-center justify-center mb-8">
               <h1 className="text-5xl md:text-7xl font-playfair font-bold">
@@ -165,7 +161,6 @@ const BirthdayServices = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {birthdayFeatures.map((feature, index) => {
-              const IconComponent = feature.icon;
               return (
                 <div
                   key={index}
@@ -180,7 +175,6 @@ const BirthdayServices = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div className="absolute bottom-4 left-4">
                       <div className="bg-wedding-gold text-wedding-brown p-2 rounded-full">
-                        <IconComponent className="h-6 w-6" />
                       </div>
                     </div>
                   </div>

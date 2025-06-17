@@ -12,55 +12,42 @@ import {
 } from "lucide-react";
 import corporate from "../../assets/Corporate.mp4";
 import logo from "../../assets/Logo1.png";
+import conference from "../../assets/corporate1.jpg";
+import team from "../../assets/corporate2.jpg";
+import parties from "../../assets/corporate3.jpg";
+import brand from "../../assets/corporate4.jpg";
+import product from "../../assets/corporate5.jpg";
 const CorporateServices = () => {
   const corporateFeatures = [
     {
       title: "Conference Management",
       description:
         "Professional conferences, seminars, and business meetings with full technical support",
-      icon: Briefcase,
-      image:
-        "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: conference
     },
     {
       title: "Team Building Events",
       description:
         "Engaging activities and retreats to strengthen team bonds and improve collaboration",
-      icon: Users,
-      image:
-        "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: team
     },
     {
       title: "Product Launches",
       description:
         "Impactful product launch events with media coverage and brand activation",
-      icon: Calendar,
-      image:
-        "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: product
     },
     {
       title: "Corporate Parties",
       description:
         "Annual celebrations, award ceremonies, and milestone achievement events",
-      icon: Music,
-      image:
-        "https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: parties
     },
     {
       title: "Brand Activations",
       description:
         "Creative brand experiences and promotional events to engage target audiences",
-      icon: Palette,
-      image:
-        "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600",
-    },
-    {
-      title: "Documentation Services",
-      description:
-        "Professional photography, videography, and live streaming for corporate events",
-      icon: Camera,
-      image:
-        "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: brand
     },
   ];
 
@@ -136,7 +123,7 @@ const CorporateServices = () => {
         <div className="relative z-10 h-full flex items-center justify-center text-center text-white">
           <div className="max-w-4xl mx-auto px-4">
             <div className="flex items-center justify-center ">
-              <img src={logo} alt="logo" className="w-28 h-full" />
+              <img src={logo} alt="logo" className="w-40 h-full" />
             </div>
             <div className="flex items-center justify-center mb-8">
               <h1 className="text-5xl md:text-7xl font-playfair font-bold">
@@ -175,7 +162,6 @@ const CorporateServices = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {corporateFeatures.map((feature, index) => {
-              const IconComponent = feature.icon;
               return (
                 <div
                   key={index}
@@ -188,11 +174,7 @@ const CorporateServices = () => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4">
-                      <div className="bg-wedding-gold text-wedding-brown p-2 rounded-full">
-                        <IconComponent className="h-6 w-6" />
-                      </div>
-                    </div>
+                  
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-playfair font-bold text-wedding-brown mb-3">

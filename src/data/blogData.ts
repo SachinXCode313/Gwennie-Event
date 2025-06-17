@@ -1,4 +1,8 @@
 import { BlogPost } from '../types/blog';
+import hinduwedding from '../assets/festive6.jpg';
+import destinationwedding from '../assets/wedding1.jpg';
+import mehendi from '../assets/mehndi.jpg';
+import catering from '../assets/corporate1.jpg';
 
 export const blogPosts: BlogPost[] = [
   // Wedding Events (Priority - Featured and Multiple Posts)
@@ -34,7 +38,7 @@ export const blogPosts: BlogPost[] = [
     category: "Wedding Events",
     likes: 156,
     comments: 23,
-    image: "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: hinduwedding,
     featured: true
   },
   {
@@ -71,7 +75,7 @@ export const blogPosts: BlogPost[] = [
     category: "Wedding Events",
     likes: 89,
     comments: 15,
-    image: "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: destinationwedding,
   },
   {
     id: 3,
@@ -108,7 +112,7 @@ export const blogPosts: BlogPost[] = [
     category: "Wedding Events",
     likes: 98,
     comments: 19,
-    image: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: catering
   },
 
   // Birthday Events
